@@ -13,7 +13,7 @@ go install forge.babariviere.com/babariviere/ntfy-bridge@latest
 Or using docker:
 
 ```sh
-docker pull forge.babariviere.com/babariviere/ntfy-bridge:latest
+docker pull  ghcr.io/disconn3ct/ntfy-bridge:main
 ```
 
 Binaries are also avaiable in the [release section](https://forge.babariviere.com/babariviere/ntfy-bridge/releases).
