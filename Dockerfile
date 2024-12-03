@@ -1,13 +1,15 @@
-FROM golang:1.23-bookworm as builder
+
+FROM --platform=$BUILDPLATFORM golang:123-bookworm AS builder
+ARG TARGETOS TARGETARCH
 
 WORKDIR /app
 
 COPY go.* ./
-RUN go mod download
+RUN GOOS=$TARGETOS GOARCH=$TARGETARCH go mod download
 
 COPY . ./
 
-RUN go build -v -o ntfy-bridge
+RUN GOOS=$TARGETOS GOARCH=$TARGETARCH go build -v -o ntfy-bridge
 
 FROM debian:bookworm-slim
 RUN set -x && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
